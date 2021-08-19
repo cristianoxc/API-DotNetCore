@@ -8,4 +8,8 @@
     <Folder Include="Interfaces\Services\User\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.12.1" />
+  </ItemGroup>
+
 </Project>
