@@ -9,11 +9,19 @@ namespace Api.Data.Context
         public MyContext CreateDbContext(string[] args)
         {
             //Usado para Criar as Migrações
-            var connectionString = "Server=localhost;Port=3306;Database=api_dotnet_core;Uid=root";
-            //var connectionString = "Server=.\\;Database=api_dotnet_core;Trusted_Connection=True;MultipleActiveResultSets=true";
             var optionsBuilder = new DbContextOptionsBuilder<MyContext>();
-            optionsBuilder.UseMySql(connectionString);
-            //optionsBuilder.UseSqlServer(connectionString);
+            
+            if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "MYSQL".ToLower())
+            {
+                string connectionString;
+                connectionString = "Server=localhost;Port=3306;Database=api_dotnet_core;Uid=root";
+                optionsBuilder.UseMySql(connectionString);
+
+            }
+            else
+            {
+                optionsBuilder.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION"));
+            }
             return new MyContext(optionsBuilder.Options);
         }
     }

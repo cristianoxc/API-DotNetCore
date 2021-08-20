@@ -38,7 +38,7 @@ namespace Api.Application.Controllers
                 {
                     return Ok(result);
                 }
-                return NotFound();
+                return NotFound(new { authenticate = false, message = "Falha ao autenticar" });
             }
             catch (ArgumentException e)
             {

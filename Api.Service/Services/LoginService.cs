@@ -39,7 +39,7 @@ namespace Api.Service.Services
                 baseUser = await _repository.FindByLogin(user.Email);
                 if(baseUser == null)
                 {
-                    return new { authenticate = false, message = "Falha ao autenticar" };
+                    return null;
                 }
                 ClaimsIdentity identity = new ClaimsIdentity(
                         new GenericIdentity(user.Email),
@@ -57,7 +57,7 @@ namespace Api.Service.Services
                 string token = CreateToken(identity, createDate, expirationDate, handler);
                 return SuccessObject(createDate, expirationDate, token, baseUser);
             }
-            return new { authenticate = false, message = "Falha ao autenticar" };
+            return null;
 
         }
 

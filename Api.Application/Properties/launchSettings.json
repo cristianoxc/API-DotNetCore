@@ -14,7 +14,9 @@
       "launchBrowser": true,
       "launchUrl": "index.html",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_CONNECTION": "Server=.\\;Database=api_dotnet_core;Trusted_Connection=True;MultipleActiveResultSets=true",
+        "DATABASE": "MSSQL"
       }
     },
     "Api.Application": {
@@ -23,8 +25,11 @@
       "launchUrl": "index.html",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_CONNECTION": "Server=.\\;Database=api_dotnet_core;Trusted_Connection=True;MultipleActiveResultSets=true",
+        "DATABASE": "MSSQL"
       }
     }
+
   }
 }
